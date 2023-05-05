@@ -5,7 +5,7 @@ import {
   withInfoPlist,
 } from "@expo/config-plugins";
 
-const pkg = require("expo-image-picker/package.json");
+const pkg = require("expo-stt/package.json");
 
 const MICROPHONE_USAGE = "Allow $(PRODUCT_NAME) to access your microphone";
 const SPEECHRECOGNITION_USAGE =
@@ -39,7 +39,7 @@ export function setSpeechRecognitionInfoPlist(
   return infoPlist;
 }
 
-const withSpeechRecogition: ConfigPlugin<Props | void> = (
+const withSpeechRecognition: ConfigPlugin<Props | void> = (
   config,
   { speechRecognitionPermission, microphonePermission } = {}
 ) => {
@@ -54,4 +54,8 @@ const withSpeechRecogition: ConfigPlugin<Props | void> = (
   return config;
 };
 
-export default createRunOncePlugin(withSpeechRecogition, pkg.name, pkg.version);
+export default createRunOncePlugin(
+  withSpeechRecognition,
+  pkg.name,
+  pkg.version
+);

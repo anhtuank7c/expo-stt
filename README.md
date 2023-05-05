@@ -14,6 +14,22 @@ If you still want to support web platform, please follow this article https://de
 npx expo install expo-stt
 ```
 
+## Custom Permissions strings
+
+Add this line to the plugins under `app.json` to custom permissions string for iOS. We don't need any extra permission for Android.
+
+```
+  "plugins": [
+    [
+      "expo-stt",
+      {
+        "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+        "speechRecognitionPermission": "Allow $(PRODUCT_NAME) to access your speech recognition"
+      }
+    ]
+  ]
+```
+
 ## Usage
 
 Please go into `example/App.tsx` to follow the instruction.
