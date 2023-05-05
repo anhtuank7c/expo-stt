@@ -27,6 +27,8 @@ For bare React Native projects, you must ensure that you have [installed and con
 
 ```
 npm install expo-stt
+or
+yarn add expo-stt
 ```
 
 ### Configure for iOS
