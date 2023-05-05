@@ -34,10 +34,20 @@ yarn add expo-stt
 ### Configure for iOS
 
 Run `npx pod-install` after installing the npm package.
-## Custom Permission strings
+## Add missing permissions for iOS
 
-Add this line to the plugins under `app.json` to custom permissions string for iOS. We don't need any extra permission for Android.
+I have trouble with [expo plugin setup](https://docs.expo.dev/modules/config-plugin-and-native-module-tutorial/#4-creating-a-new-config-plugin) so you need to manually add these permissions key to `Info.plist` in `ios` project
 
+Android don't need any permission even `RECORD_AUDIO`
+
+```
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Allow $(PRODUCT_NAME) to access your microphone</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Allow $(PRODUCT_NAME) to access your speech recognition</string>
+```
+
+In case I could resolve the plugin config as mentioned above, add following key to plugins of `app.json`
 ```
   "plugins": [
     [
@@ -50,9 +60,57 @@ Add this line to the plugins under `app.json` to custom permissions string for i
   ]
 ```
 
+
 ## Usage
 
-Please go into `example/App.tsx` to follow the instruction.
+Register some listeners
+```
+  import * as ExpoStt from 'expo-stt';
+
+  useEffect(() => {
+    const onSpeechStart = ExpoStt.addOnSpeechStartListener(() => {
+      setSpokenText("");
+      setError(undefined);
+      setRecognizing(true);
+    });
+
+    const onSpeechResult = ExpoStt.addOnSpeechResultListener(({ value }) => {
+      setSpokenText(value.join());
+    });
+
+    const onSpeechCancelled = ExpoStt.addOnSpeechCancelledListener(() => {
+      setRecognizing(false);
+    });
+
+    const onSpeechError = ExpoStt.addOnSpeechErrorListener(({ cause }) => {
+      setError(cause);
+      setRecognizing(false);
+    });
+
+    const onSpeechEnd = ExpoStt.addOnSpeechEndListener(() => {
+      setRecognizing(false);
+    });
+
+    return () => {
+      onSpeechStart.remove();
+      onSpeechResult.remove();
+      onSpeechCancelled.remove();
+      onSpeechError.remove();
+      onSpeechEnd.remove();
+    };
+  }, []);
+```
+
+There are some functions available to call such as:
+
+* ExpoStt.startSpeech()
+* ExpoStt.stopSpeech()
+* ExpoStt.cancelSpeech()
+* ExpoStt.destroySpeech()
+* ExpoStt.requestRecognitionPermission()
+* ExpoStt.checkRecognitionPermission()
+
+Take a look into `example/App.tsx` for completed example
 
 # Contributing
 
