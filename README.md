@@ -2,8 +2,6 @@
 
 Unofficial Speech To Text module for Expo which supported iOS and Android
 
-This module just support iOS and Android platforms.
-
 So sorry that I am unemployed and don't have much money to spend more time to make this module work also for web.
 
 If you still want to support web platform, please follow this article https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
@@ -31,23 +29,21 @@ or
 yarn add expo-stt
 ```
 
-### Configure for iOS
+Remember, this module doesn't support [Expo Go](https://expo.dev/expo-go).
+So for Expo project, you will need to [generates native code](https://docs.expo.dev/workflow/prebuild/#clean) (Bare React Native project can skip this step)
+
+```
+npx expo prebuild --clean
+```
+
+### Configure for iOS (Bare React Native project only)
 
 Run `npx pod-install` after installing the npm package.
-## Add missing permissions for iOS
+## Add missing permissions for iOS (Expo project only)
 
-I have trouble with [expo plugin setup](https://docs.expo.dev/modules/config-plugin-and-native-module-tutorial/#4-creating-a-new-config-plugin) so you need to manually add these permissions key to `Info.plist` in `ios` project
+Add following key to plugins of `app.json`
+This is an optional, just use in case you want to customize the permission string
 
-Android don't need any permission even `RECORD_AUDIO`
-
-```
-  <key>NSMicrophoneUsageDescription</key>
-  <string>Allow $(PRODUCT_NAME) to access your microphone</string>
-  <key>NSSpeechRecognitionUsageDescription</key>
-  <string>Allow $(PRODUCT_NAME) to access your speech recognition</string>
-```
-
-In case I could resolve the plugin config as mentioned above, add following key to plugins of `app.json`
 ```
   "plugins": [
     [
