@@ -1,4 +1,6 @@
-# Unofficial Expo Speech To Text module
+# expo-stt
+
+Unofficial Speech To Text module for Expo which supported iOS and Android
 
 This module just support iOS and Android platforms.
 
@@ -8,13 +10,29 @@ If you still want to support web platform, please follow this article https://de
 
 ![Demo speech to text](demo.png "Demo Speech To Text")
 
-## Installation
+# API documentation
+
+- [Documentation for the main branch](https://github.com/expo/expo/blob/main/docs/pages/versions/unversioned/sdk/stt.md)
+- [Documentation for the latest stable release](https://docs.expo.dev/versions/latest/sdk/stt/)
+
+# Installation in managed Expo projects
+
+For [managed](https://docs.expo.dev/versions/latest/introduction/managed-vs-bare/) Expo projects, please follow the installation instructions in the [API documentation for the latest stable release](#api-documentation). If you follow the link and there is no documentation available then this library is not yet usable within managed projects &mdash; it is likely to be included in an upcoming Expo SDK release.
+
+# Installation in bare React Native projects
+
+For bare React Native projects, you must ensure that you have [installed and configured the `expo` package](https://docs.expo.dev/bare/installing-expo-modules/) before continuing.
+
+### Add the package to your npm dependencies
 
 ```
-npx expo install expo-stt
+npm install expo-stt
 ```
 
-## Custom Permissions strings
+### Configure for iOS
+
+Run `npx pod-install` after installing the npm package.
+## Custom Permission strings
 
 Add this line to the plugins under `app.json` to custom permissions string for iOS. We don't need any extra permission for Android.
 
@@ -34,14 +52,9 @@ Add this line to the plugins under `app.json` to custom permissions string for i
 
 Please go into `example/App.tsx` to follow the instruction.
 
-## Why?
+# Contributing
 
-A module for Expo, why not?
-
-## Contribute
-
-Any idea to make this module more stable and flexible are welcome.
-Don't hesitate to shot me an email to anhtuank7c@hotmail.com or submit a PR, both way works for me.
+Contributions are very welcome! Please refer to guidelines described in the [contributing guide]( https://github.com/expo/expo#contributing).
 
 ## Author
 
