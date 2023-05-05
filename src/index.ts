@@ -14,9 +14,6 @@ import {
 } from "./ExpoStt.types";
 import ExpoSttModule from "./ExpoSttModule";
 
-// Get the native constant value.
-export const PI = ExpoSttModule.PI;
-
 export function startSpeech(): boolean {
   return ExpoSttModule.startSpeech();
 }
@@ -66,4 +63,5 @@ export function addOnSpeechErrorListener(
     listener
   );
 }
-export { OnSpeechResultEventPayload, OnSpeechErrorEventPayload };
+
+export { OnSpeechResultEventPayload, OnSpeechErrorEventPayload, ReactEvents };
