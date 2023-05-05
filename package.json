@@ -1,7 +1,7 @@
 {
   "name": "expo-stt",
-  "version": "0.1.0",
-  "description": "Speech To Text",
+  "version": "0.1.0-rc01",
+  "description": "Unofficial Speech To Text module for Expo which supported iOS and Android",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {

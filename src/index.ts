@@ -17,7 +17,7 @@ import ExpoSttModule from "./ExpoSttModule";
 // Get the native constant value.
 export const PI = ExpoSttModule.PI;
 
-export function startSpeech(): boolean | never {
+export function startSpeech(): boolean {
   return ExpoSttModule.startSpeech();
 }
 export function stopSpeech(): void {

@@ -1,5 +1,13 @@
 # Unofficial Expo Speech To Text module
 
+This module just support iOS and Android platforms.
+
+So sorry that I am unemployed and don't have much money to spend more time to make this module work also for web.
+
+If you still want to support web platform, please follow this article https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
+
+![Demo speech to text](demo.png "Demo Speech To Text")
+
 ## Installation
 
 ```

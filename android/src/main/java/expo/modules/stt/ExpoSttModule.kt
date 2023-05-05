@@ -73,7 +73,6 @@ class ExpoSttModule : Module() {
                     }
                 }
             }
-            Log.d(TAG, "Outside of coroutine scope")
             return@Function true
         }
 
