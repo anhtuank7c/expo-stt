@@ -1,0 +1,1 @@
+{"version":3,"file":"ExpoStt.types.d.ts","sourceRoot":"","sources":["../src/ExpoStt.types.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,0BAA0B,GAAG;IACvC,KAAK,EAAE,MAAM,EAAE,CAAC;CACjB,CAAC;AACF,MAAM,MAAM,yBAAyB,GAAG;IACtC,KAAK,EAAE,MAAM,CAAC;CACf,CAAC;AACF,oBAAY,WAAW;IACrB,aAAa,kBAAkB;IAC/B,WAAW,gBAAgB;IAC3B,aAAa,kBAAkB;IAC/B,cAAc,mBAAmB;IACjC,iBAAiB,sBAAsB;CACxC"}
