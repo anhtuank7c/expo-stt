@@ -39,9 +39,9 @@ npx expo prebuild --clean
 ### Configure for iOS (Bare React Native project only)
 
 Run `npx pod-install` after installing the npm package.
-## Add missing permissions for iOS (Expo project only)
+## Add missing permissions for iOS
 
-Add following key to plugins of `app.json`
+Add following key to plugins of `app.json` in Expo project
 This is an optional, just use in case you want to customize the permission string
 
 ```
@@ -56,6 +56,14 @@ This is an optional, just use in case you want to customize the permission strin
   ]
 ```
 
+For Bare React Native project, you need to add these key to `Info.plist` in `ios` directory
+
+```
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Allow $(PRODUCT_NAME) to access your microphone</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Allow $(PRODUCT_NAME) to access your speech recognition</string>
+```
 
 ## Usage
 
