@@ -1,9 +1,12 @@
 {
-  "name": "expo-stt",
+  "name": "@crossplatformkorea/expo-stt",
   "version": "0.0.3",
   "description": "Unofficial Speech To Text module for Expo which supported iOS and Android",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "expo-module build",
     "clean": "expo-module clean",
