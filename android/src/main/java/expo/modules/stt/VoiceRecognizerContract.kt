@@ -30,16 +30,16 @@ internal class VoiceRecognizerContract :
         if (resultCode == Activity.RESULT_CANCELED) {
             return VoiceRecognizerContractResult.Cancelled()
         }
-        if (resultCode == Activity.RESULT_OK && intent != null) {
-            val value = arrayListOf<String>()
-            intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.let { result ->
-                if (result != null) {
-                    value.addAll(result)
-                }
-            }
-            return VoiceRecognizerContractResult.Success(value)
+        if (resultCode != Activity.RESULT_OK || intent != null) {
+            return VoiceRecognizerContractResult.Error("Something went wrong")
         }
-        return VoiceRecognizerContractResult.Error("Something went wrong")
+        val value = arrayListOf<String>()
+        intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.let { result ->
+            if (result != null) {
+                value.addAll(result)
+            }
+        }
+        return VoiceRecognizerContractResult.Success(value)
     }
 }
 
